@@ -1,0 +1,31 @@
+.ordersPage {
+  padding: 24px;
+}
+
+.ordersControls {
+  display: flex;
+  gap: 12px;
+  margin: 20px 0;
+}
+
+.ordersControls input,
+.ordersControls select {
+  padding: 8px;
+}
+
+.ordersTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.ordersTable th,
+.ordersTable td {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+
+.ordersTable button {
+  padding: 6px 12px;
+  cursor: pointer;
+}

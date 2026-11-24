@@ -1,0 +1,31 @@
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.recentOrder {
+  display: block;
+  margin: 0 auto;
+}
+.recentOrder .sectionHeading{
+   font-weight: 700;
+   font-size: 32px;
+}
+.recentOrder.table{
+  border: 1px solid black;
+}
+.recentOrder .table .tableheader {
+  display: flex;
+  gap: 12px;
+}
+.tableheader * {
+ flex: 1;
+ font-weight: 700;
+}
+.table .tableRow {
+  display: flex;
+  gap: 12px;
+}
+.tableRow * {
+  flex: 1;
+}
