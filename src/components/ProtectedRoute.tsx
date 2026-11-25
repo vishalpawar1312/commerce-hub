@@ -9,7 +9,7 @@ interface ProtectedRouteProps {
 export default function ProtectedRoute({ allowedRole }: ProtectedRouteProps) {
   const { user, isAuthenticated,loading } = useAuth();
   if(loading) {
-    return <div>Loading...</div>
+    return <div className="loadingState">Loading...</div>
   }
   if(!isAuthenticated && user?.role !== allowedRole){
     return <Navigate to ={"/admin/login" }/>;

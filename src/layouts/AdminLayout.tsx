@@ -1,4 +1,4 @@
-import { Outlet, useNavigate } from "react-router-dom";
+import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import useAuth from "@/hooks/useAuth";
 import { useState } from "react";
 
@@ -12,15 +12,22 @@ export default function AdminLayout() {
     setLoggedIn(false);
   }
   return (
-    <>
+    <div className="adminLayout">
       <header>Admin Layout
        {loggedIn && <button onClick={handleClickLogout}>Logout</button>}
       </header>
-      <aside>Sidebar</aside>
+      <aside>
+        <p className="sidebarTitle">Menu</p>
+        <nav className="sidebarNav">
+          <NavLink to="/admin/dashboard">Dashboard</NavLink>
+          <NavLink to="/admin/users">Users</NavLink>
+          <NavLink to="/admin/orders">Orders</NavLink>
+        </nav>
+      </aside>
       <main>
         <Outlet />
       </main>
-      <footer>Footer</footer>
-    </>
+      <footer>© 2026 Commerce Hub</footer>
+    </div>
   );
 }

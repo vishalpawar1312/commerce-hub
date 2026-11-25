@@ -31,8 +31,12 @@ export default function CartPage() {
     <div className="cartPage">
       <h1>Cart</h1>
 
+      {cartItems.length === 0 && (
+        <p className="emptyState">Your cart is empty</p>
+      )}
+
       {cartItems.map((item) => (
-        <div key={item.id}>
+        <div className="cartItem" key={item.id}>
           <span>{item.name}</span>
           <span>₹{item.price}</span>
 

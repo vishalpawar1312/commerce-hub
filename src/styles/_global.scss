@@ -1,0 +1,56 @@
+@use "variables" as *;
+
+// Reset & base ---------------------------------------------------------------
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  color-scheme: light;
+  font-family: $font-sans;
+  font-size: 16px;
+  line-height: 1.5;
+  color: $color-text;
+  background: $color-bg;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background: $color-bg;
+  color: $color-text;
+}
+
+#root {
+  min-height: 100svh;
+}
+
+img,
+svg {
+  max-width: 100%;
+}
+
+a {
+  color: $color-primary;
+  text-decoration: none;
+
+  &:hover {
+    color: $color-primary-hover;
+    text-decoration: underline;
+  }
+}
+
+::selection {
+  background: rgba($color-primary, 0.2);
+}

@@ -1,0 +1,14 @@
+@use "../mixins" as *;
+
+// Default button is the primary action. Add `btnSecondary` for secondary actions.
+button {
+  @include button-primary;
+}
+
+.btnSecondary {
+  @include button-secondary;
+}
+
+.btnDanger {
+  @include button-danger;
+}

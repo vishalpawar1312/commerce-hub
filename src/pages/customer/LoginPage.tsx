@@ -1,7 +1,7 @@
 
 export default function Loginpage() {
   return (
-    <div>
+    <div className="customerLoginPage">
       Customer Login
     </div>
   )

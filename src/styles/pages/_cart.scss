@@ -1,0 +1,94 @@
+@use "../variables" as *;
+@use "../mixins" as *;
+
+.cartPage,
+.checkoutPage {
+  max-width: 47.5rem;
+  margin-inline: auto;
+
+  h1 {
+    margin-bottom: $space-5;
+  }
+}
+
+.cartItem {
+  @include card($space-3 $space-4);
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+  margin-bottom: $space-3;
+
+  > span:first-child {
+    flex: 1;
+    min-width: 0;
+    font-weight: $font-weight-medium;
+    @include truncate;
+  }
+
+  > span:nth-child(2) {
+    color: $color-text-muted;
+    font-size: $font-size-sm;
+  }
+
+  > span:nth-child(3) {
+    min-width: 1.75rem;
+    font-variant-numeric: tabular-nums;
+    font-weight: $font-weight-medium;
+    text-align: center;
+  }
+
+  button {
+    @include button-secondary;
+    width: 2rem;
+    height: 2rem;
+    padding: 0;
+    font-size: $font-size-base;
+  }
+
+  button:last-child {
+    @include button-danger;
+    width: 2rem;
+    height: 2rem;
+    padding: 0;
+    margin-left: $space-2;
+  }
+
+  @include below("sm") {
+    flex-wrap: wrap;
+
+    > span:first-child {
+      flex-basis: 100%;
+      white-space: normal;
+    }
+
+    > span:nth-child(2) {
+      margin-right: auto;
+    }
+  }
+}
+
+.cartSummary {
+  @include card;
+  margin-top: $space-5;
+
+  p {
+    display: flex;
+    justify-content: space-between;
+    color: $color-text-muted;
+
+    + p {
+      margin-top: $space-2;
+      padding-top: $space-2;
+      border-top: 1px solid $color-border;
+      color: $color-text;
+      font-weight: $font-weight-semibold;
+    }
+  }
+}
+
+.cartPage > button {
+  width: 100%;
+  margin-top: $space-4;
+  height: 2.75rem;
+  font-size: $font-size-base;
+}

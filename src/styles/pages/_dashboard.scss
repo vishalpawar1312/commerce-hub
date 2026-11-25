@@ -1,0 +1,63 @@
+@use "../variables" as *;
+@use "../mixins" as *;
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: $space-5;
+}
+
+.recentOrder {
+  @include card(0);
+  display: block;
+  margin-top: $space-6;
+  overflow: hidden;
+
+  .sectionHeading {
+    padding: $space-4 $space-5;
+    border-bottom: 1px solid $color-border;
+    font-size: $font-size-lg;
+    font-weight: $font-weight-semibold;
+  }
+
+  .table {
+    overflow-x: auto;
+  }
+
+  .tableheader,
+  .tableRow {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr 1fr 1fr;
+    align-items: center;
+    gap: $space-3;
+    min-width: 32rem;
+    padding: $space-3 $space-5;
+  }
+
+  .tableheader {
+    background: $color-surface-muted;
+    border-bottom: 1px solid $color-border;
+    color: $color-text-muted;
+    font-size: $font-size-xs;
+    font-weight: $font-weight-semibold;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .tableRow {
+    border-bottom: 1px solid $color-border;
+    font-size: $font-size-base;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    &:hover {
+      background: $color-surface-muted;
+    }
+
+    > .statusBadge {
+      justify-self: start;
+    }
+  }
+}

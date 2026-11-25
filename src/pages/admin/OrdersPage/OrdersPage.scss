@@ -1,0 +1,39 @@
+@use "@/styles/variables" as *;
+@use "@/styles/mixins" as *;
+
+.ordersPage {
+  .ordersControls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: $space-3;
+    margin: $space-5 0;
+
+    input {
+      flex: 1 1 14rem;
+      max-width: 22.5rem;
+    }
+
+    select {
+      flex: 0 0 auto;
+      min-width: 10rem;
+    }
+
+    @include below("sm") {
+      input,
+      select {
+        flex: 1 1 100%;
+        max-width: none;
+      }
+    }
+  }
+
+  .ordersTable {
+    min-width: 36rem;
+
+    button {
+      @include button-secondary;
+      @include button-compact;
+    }
+  }
+}

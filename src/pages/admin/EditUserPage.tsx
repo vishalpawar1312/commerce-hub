@@ -31,7 +31,7 @@ export default function EditUserPage() {
     navigate(`/admin/users/${userId}`)
   }
   return (
-    <div>
+    <div className="editUserPage">
       <h1>Edit User</h1>
       <label>Name</label>
       <input
@@ -57,7 +57,7 @@ export default function EditUserPage() {
         value={formData.status}
         onChange={handleChange}
       />
-      <button onClick={handleCancel}>Cancel</button>
+      <button className="btnSecondary" onClick={handleCancel}>Cancel</button>
       <button onClick={handleSave}>Save Changes</button>
     </div>
 

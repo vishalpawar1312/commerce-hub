@@ -1,0 +1,159 @@
+@use "sass:map";
+@use "variables" as *;
+
+// Media queries ----------------------------------------------------------
+@mixin below($name) {
+  @media (max-width: map.get($breakpoints, $name)) {
+    @content;
+  }
+}
+
+// Surfaces -----------------------------------------------------------------
+@mixin card($padding: $space-5) {
+  background: $color-surface;
+  border: 1px solid $color-border;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-sm;
+  padding: $padding;
+}
+
+// Buttons ------------------------------------------------------------------
+@mixin button-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: $space-2;
+  height: $control-height;
+  padding: 0 $space-4;
+  border: 1px solid transparent;
+  border-radius: $radius-md;
+  font-family: inherit;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    background-color $transition,
+    border-color $transition,
+    color $transition,
+    box-shadow $transition;
+
+  &:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px $color-primary-ring;
+  }
+
+  &:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+  }
+}
+
+@mixin button-primary {
+  @include button-base;
+  color: #fff;
+  background: $color-primary;
+  border-color: $color-primary;
+  box-shadow: $shadow-sm;
+
+  &:hover:not(:disabled) {
+    background: $color-primary-hover;
+    border-color: $color-primary-hover;
+  }
+
+  &:active:not(:disabled) {
+    background: $color-primary-active;
+  }
+}
+
+@mixin button-secondary {
+  @include button-base;
+  color: $color-text;
+  background: $color-surface;
+  border-color: $color-border-strong;
+  box-shadow: $shadow-sm;
+
+  &:hover:not(:disabled) {
+    background: $color-surface-muted;
+    border-color: $color-text-subtle;
+  }
+
+  &:active:not(:disabled) {
+    background: $color-neutral-soft;
+  }
+}
+
+@mixin button-danger {
+  @include button-secondary;
+  color: $color-danger;
+
+  &:hover:not(:disabled) {
+    background: $color-danger-soft;
+    border-color: $color-danger;
+  }
+}
+
+@mixin button-compact {
+  height: 2rem;
+  padding: 0 $space-3;
+}
+
+// Form controls --------------------------------------------------------------
+@mixin control {
+  height: $control-height;
+  padding: 0 $space-3;
+  border: 1px solid $color-border-strong;
+  border-radius: $radius-md;
+  background-color: $color-surface;
+  color: $color-text;
+  font-family: inherit;
+  font-size: $font-size-base;
+  line-height: 1.4;
+  transition:
+    border-color $transition,
+    box-shadow $transition;
+
+  &::placeholder {
+    color: $color-text-subtle;
+  }
+
+  &:hover:not(:disabled) {
+    border-color: $color-text-subtle;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: $color-primary;
+    box-shadow: 0 0 0 3px $color-primary-ring;
+  }
+
+  &:disabled {
+    background-color: $color-neutral-soft;
+    cursor: not-allowed;
+  }
+}
+
+// Tables -------------------------------------------------------------------
+@mixin table-head-cell {
+  padding: $space-3 $space-4;
+  background: $color-surface-muted;
+  color: $color-text-muted;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-semibold;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+@mixin table-body-cell {
+  padding: $space-3 $space-4;
+  color: $color-text;
+  font-size: $font-size-base;
+}
+
+// Misc ---------------------------------------------------------------------
+@mixin truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

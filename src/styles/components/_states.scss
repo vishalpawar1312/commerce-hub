@@ -1,0 +1,19 @@
+@use "../variables" as *;
+
+// Empty / loading placeholders
+.emptyState,
+.loadingState {
+  padding: $space-12 $space-4;
+  border: 1px dashed $color-border-strong;
+  border-radius: $radius-lg;
+  background: $color-surface;
+  color: $color-text-muted;
+  font-size: $font-size-base;
+  text-align: center;
+}
+
+.loadingState {
+  border-style: solid;
+  border-color: transparent;
+  background: transparent;
+}

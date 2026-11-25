@@ -1,5 +1,5 @@
 import { type OrderStatus, selectOrderById, updateOrderStatus } from "@/store/slices/ordersSlice";
-import "./OrderDetailsPage.css";
+import "./OrderDetailsPage.scss";
 import { useAppDispatch, useAppSelector } from "@/store/hooks/hooks";
 import { useNavigate, useParams } from "react-router-dom";
 import { useState } from "react";
