@@ -1,0 +1,34 @@
+@use "variables" as *;
+
+// Small, opt-in helpers. Add to markup only when needed.
+.textMuted {
+  color: $color-text-muted;
+}
+
+.textRight {
+  text-align: right;
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+// Validation message (for use with form fields)
+.errorMessage {
+  margin-top: $space-1;
+  color: $color-danger;
+  font-size: $font-size-sm;
+}
+
+// Fields with errors
+.inputError {
+  border-color: $color-danger;
+}

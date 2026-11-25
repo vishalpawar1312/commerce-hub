@@ -1,0 +1,37 @@
+@use "../variables" as *;
+@use "../mixins" as *;
+
+// Scroll container around native tables (keeps wide tables from overflowing the page).
+.tableContainer {
+  @include card(0);
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+
+  th {
+    @include table-head-cell;
+    text-align: left;
+    white-space: nowrap;
+    border-bottom: 1px solid $color-border;
+  }
+
+  td {
+    @include table-body-cell;
+    border-bottom: 1px solid $color-border;
+  }
+
+  tbody tr {
+    transition: background-color $transition;
+
+    &:hover {
+      background: $color-surface-muted;
+    }
+
+    &:last-child td {
+      border-bottom: none;
+    }
+  }
+}

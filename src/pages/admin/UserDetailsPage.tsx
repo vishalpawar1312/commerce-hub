@@ -9,20 +9,20 @@ export default function UserDetailsPage() {
   );
   const navigate = useNavigate();
   if (!user) {
-    return <div>User not found</div>;
+    return <div className="emptyState">User not found</div>;
   }
 
   const handleEdit = ()=> {
     navigate(`edit`)
   }
   return (
-    <div>
+    <div className="userDetailsPage">
       <h1>User Details</h1>
 
-      <div>{user.name}</div>
-      <div>{user.email}</div>
-      <div>{user.role}</div>
-      <div>{user.status}</div>
+      <div className="userName">{user.name}</div>
+      <div className="userEmail">{user.email}</div>
+      <div className="userRole">{user.role}</div>
+      <div className={`statusBadge status${user.status}`}>{user.status}</div>
 
       <button onClick={handleEdit}>Edit User</button>
     </div>

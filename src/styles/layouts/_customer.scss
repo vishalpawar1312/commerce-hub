@@ -1,0 +1,82 @@
+@use "../variables" as *;
+@use "../mixins" as *;
+
+.customerLayout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100svh;
+
+  > header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    min-height: $header-height;
+    padding: $space-2 $space-6;
+    background: $color-surface;
+    border-bottom: 1px solid $color-border;
+    font-size: $font-size-lg;
+    font-weight: $font-weight-semibold;
+  }
+
+  > nav {
+    display: flex;
+    gap: $space-1;
+    padding: $space-2 $space-6;
+    background: $color-surface;
+    border-bottom: 1px solid $color-border;
+    overflow-x: auto;
+
+    a {
+      padding: $space-2 $space-3;
+      border-radius: $radius-md;
+      color: $color-text-muted;
+      font-size: $font-size-base;
+      font-weight: $font-weight-medium;
+      text-decoration: none;
+      white-space: nowrap;
+      transition:
+        background-color $transition,
+        color $transition;
+
+      &:hover {
+        background: $color-neutral-soft;
+        color: $color-text;
+      }
+
+      &.active {
+        background: $color-primary-soft;
+        color: $color-primary;
+      }
+    }
+  }
+
+  > main {
+    flex: 1;
+    width: 100%;
+    max-width: $content-max-width;
+    margin-inline: auto;
+    padding: $space-8 $space-6;
+  }
+
+  > footer {
+    padding: $space-4 $space-6;
+    border-top: 1px solid $color-border;
+    background: $color-surface;
+    color: $color-text-subtle;
+    font-size: $font-size-sm;
+  }
+
+  @include below("md") {
+    > header,
+    > nav,
+    > footer {
+      padding-inline: $space-4;
+    }
+
+    > main {
+      padding: $space-5 $space-4;
+    }
+  }
+}

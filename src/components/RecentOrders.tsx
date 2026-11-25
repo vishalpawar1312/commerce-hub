@@ -27,7 +27,7 @@ export default function RecentOrders({orders}: RecentOrdersProps) {
             <div className="first">{order.id}</div>
             <div className="second">{order.customer}</div>
             <div className="third">{order.amount}</div>
-            <div className="forth">{order.status}</div>
+            <div className={`forth statusBadge status${order.status}`}>{order.status}</div>
           </div>
         ))}
       </div>

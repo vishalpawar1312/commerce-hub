@@ -18,7 +18,7 @@ export default function UsersPage() {
       item.email.toLowerCase().includes(searchTerm.toLowerCase())
   )
   return (
-    <div>
+    <div className="usersPage">
       <h1>Users</h1>
       <div className="searchContainer">
         <input
@@ -29,7 +29,7 @@ export default function UsersPage() {
         />
       </div>
       {filterUsers.length === 0 ?
-        <div>No users found</div> :
+        <div className="emptyState">No users found</div> :
         <div className="usersTable">
           <div className="tableHeader">
             <div>Name</div>
@@ -47,7 +47,7 @@ export default function UsersPage() {
               <div>{user.name}</div>
               <div>{user.email}</div>
               <div>{user.role}</div>
-              <div>{user.status}</div>
+              <div className={`statusBadge status${user.status}`}>{user.status}</div>
             </div>
           ))}
 

@@ -1,0 +1,152 @@
+@use "../variables" as *;
+@use "../mixins" as *;
+
+.adminLayout {
+  display: grid;
+  grid-template-columns: $sidebar-width minmax(0, 1fr);
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas:
+    "header header"
+    "sidebar main"
+    "footer footer";
+  min-height: 100svh;
+
+  > header {
+    grid-area: header;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: $space-4;
+    min-height: $header-height;
+    padding: $space-2 $space-6;
+    background: $color-surface;
+    border-bottom: 1px solid $color-border;
+    color: $color-text;
+    font-size: $font-size-lg;
+    font-weight: $font-weight-semibold;
+
+    button {
+      @include button-secondary;
+      @include button-compact;
+    }
+  }
+
+  > aside {
+    grid-area: sidebar;
+    padding: $space-6 $space-5;
+    background: $color-surface;
+    border-right: 1px solid $color-border;
+
+    .sidebarTitle {
+      margin-bottom: $space-3;
+      color: $color-text-subtle;
+      font-size: $font-size-xs;
+      font-weight: $font-weight-semibold;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .sidebarNav {
+      display: flex;
+      flex-direction: column;
+      gap: $space-1;
+
+      a {
+        padding: $space-2 $space-3;
+        border-radius: $radius-md;
+        color: $color-text-muted;
+        font-size: $font-size-base;
+        font-weight: $font-weight-medium;
+        text-decoration: none;
+        transition:
+          background-color $transition,
+          color $transition;
+
+        &:hover {
+          background: $color-neutral-soft;
+          color: $color-text;
+        }
+
+        &.active {
+          background: $color-primary-soft;
+          color: $color-primary;
+        }
+      }
+    }
+  }
+
+  > main {
+    grid-area: main;
+    width: 100%;
+    max-width: $content-max-width;
+    min-width: 0;
+    padding: $space-8;
+  }
+
+  > footer {
+    grid-area: footer;
+    padding: $space-4 $space-6;
+    border-top: 1px solid $color-border;
+    background: $color-surface;
+    color: $color-text-subtle;
+    font-size: $font-size-sm;
+  }
+
+  // Login screen: no sidebar, content centered.
+  &:has(.loginForm) {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      "header"
+      "main"
+      "footer";
+
+    > aside {
+      display: none;
+    }
+
+    > main {
+      margin-inline: auto;
+    }
+  }
+
+  @include below("md") {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto auto 1fr auto;
+    grid-template-areas:
+      "header"
+      "sidebar"
+      "main"
+      "footer";
+
+    > header,
+    > footer {
+      padding-inline: $space-4;
+    }
+
+    > aside {
+      padding: $space-3 $space-4;
+      border-right: none;
+      border-bottom: 1px solid $color-border;
+
+      .sidebarTitle {
+        display: none;
+      }
+
+      .sidebarNav {
+        flex-direction: row;
+        overflow-x: auto;
+
+        a {
+          white-space: nowrap;
+        }
+      }
+    }
+
+    > main {
+      padding: $space-5 $space-4;
+    }
+  }
+}

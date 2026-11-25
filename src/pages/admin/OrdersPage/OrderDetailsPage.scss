@@ -1,0 +1,59 @@
+@use "@/styles/variables" as *;
+@use "@/styles/mixins" as *;
+
+.orderDetailsPage {
+  .pageHeader {
+    margin-bottom: $space-5;
+
+    h1 {
+      margin: 0 0 $space-2;
+    }
+
+    p {
+      margin: 0;
+    }
+  }
+
+  .orderDetailsCard {
+    @include card(0 $space-5);
+    max-width: 37.5rem;
+  }
+
+  .detailRow {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: $space-3;
+    padding: $space-4 0;
+    border-bottom: 1px solid $color-border;
+    font-size: $font-size-base;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    .detailLabel {
+      margin-right: auto;
+      color: $color-text-muted;
+      font-size: $font-size-sm;
+      font-weight: $font-weight-medium;
+    }
+
+    select {
+      min-width: 9rem;
+    }
+
+    button {
+      @include button-compact;
+    }
+  }
+
+  .pageActions {
+    margin-top: $space-5;
+
+    button {
+      @include button-secondary;
+    }
+  }
+}

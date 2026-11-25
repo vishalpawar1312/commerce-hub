@@ -1,0 +1,24 @@
+@use "../variables" as *;
+@use "../mixins" as *;
+
+.checkoutPage {
+  max-width: 32.5rem;
+
+  form {
+    @include card($space-6);
+    display: flex;
+    flex-direction: column;
+    gap: $space-4;
+  }
+
+  input,
+  textarea {
+    width: 100%;
+  }
+
+  button[type="submit"] {
+    height: 2.75rem;
+    margin-top: $space-2;
+    font-size: $font-size-base;
+  }
+}

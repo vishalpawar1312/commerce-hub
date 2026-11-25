@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./OrdersPage.css";
+import "./OrdersPage.scss";
 import { useAppSelector } from "@/store/hooks/hooks";
 import { selectFilteredOrders,type OrderStatusFilter } from "@/store/slices/ordersSlice";
 import { useNavigate } from "react-router-dom";
@@ -41,6 +41,7 @@ const OrdersPage = () => {
         </select>
       </div>
 
+      <div className="tableContainer">
       <table className="ordersTable">
         <thead>
           <tr>
@@ -58,7 +59,7 @@ const OrdersPage = () => {
               <td>{order.id}</td>
               <td>{order.customer}</td>
               <td>₹{order.amount}</td>
-              <td>{order.status}</td>
+              <td><span className={`statusBadge status${order.status}`}>{order.status}</span></td>
               <td>
                 <button onClick={() => handleViewOrder(order.id)} type="button">View</button>
               </td>
@@ -66,6 +67,7 @@ const OrdersPage = () => {
           ))}
         </tbody>
       </table>
+      </div>
     </div>
   );
 };

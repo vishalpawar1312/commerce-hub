@@ -1,0 +1,8 @@
+// Global entry point. Imported once from src/main.tsx.
+// Order matters: foundations -> shared components -> layouts -> pages -> utilities.
+@use "global";
+@use "typography";
+@use "components";
+@use "layouts";
+@use "pages";
+@use "utilities";
